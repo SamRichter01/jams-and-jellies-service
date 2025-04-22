@@ -3,6 +3,7 @@ package com.jams_and_jellies.service;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Id;
 
 /**
@@ -13,7 +14,9 @@ public class Product {
 
   @Id
   @GeneratedValue(strategy=GenerationType.AUTO)
+  @Column(name = "PRODUCT_ID")
   private Long id;
+
   private String name;
 
   protected Product() {}
@@ -24,7 +27,7 @@ public class Product {
 
   @Override
   public String toString() {
-    return String.format("Product[id=%d, name='%s']", id, name);
+    return String.format("Product[id='%d', name='%s']", id, name);
   }
 
   public Long getId() {
